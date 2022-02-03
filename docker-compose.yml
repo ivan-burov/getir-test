@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  server:
+    image: "node:16-stretch"
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    command: bash -c "yarn install && yarn start"
